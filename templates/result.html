@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI';
+            background: #0d0d0d;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            margin-top: 40px;
+        }
+
+        .box {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        h2 {
+            color: #1DB954;
+        }
+
+        button {
+            background: #1DB954;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>✨ Summary</h1>
+
+    <div class="box">
+        {{ summary }}
+    </div>
+
+    <h2>⭐ Key Points</h2>
+
+    <div class="box">
+        <ul>
+            {% for p in points %}
+                <li>{{ p }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <form action="/download" method="post">
+        {% for p in points %}
+            <input type="hidden" name="points" value="{{ p }}">
+        {% endfor %}
+        <button>Download PDF</button>
+    </form>
+
+</div>
+
+</body>
+</html>
