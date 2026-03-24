@@ -7,7 +7,7 @@ from reportlab.lib.styles import getSampleStyleSheet
 app = Flask(__name__)
 
 # Load summarization model
-summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-6-6")
 
 
 # 🔥 UNLIMITED TEXT SUMMARIZATION (NO REDUCTION)
